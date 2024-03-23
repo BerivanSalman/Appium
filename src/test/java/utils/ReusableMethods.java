@@ -3,6 +3,7 @@ package utils;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -11,6 +12,7 @@ import org.openqa.selenium.TakesScreenshot;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 
 public class ReusableMethods {
@@ -48,4 +50,19 @@ public class ReusableMethods {
         return target;
     }
 
+    public static void ekranKaydirmaMethodu(int xPress,int yPress,int wait,int xMove,int yMove){
+        TouchAction action=new TouchAction<>(driver);
+        action.press(PointOption.point(xPress,yPress))
+                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(wait)))
+                .moveTo(PointOption.point(xMove,yMove))
+                .release()
+                .perform();
+    }
+    public static void wait(int saniye) {
+        try {
+            Thread.sleep(saniye * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
