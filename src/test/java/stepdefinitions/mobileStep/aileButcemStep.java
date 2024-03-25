@@ -6,6 +6,7 @@ import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.touch.WaitOptions;
 import io.appium.java_client.touch.offset.PointOption;
 import io.cucumber.java.en.Given;
+import org.junit.Assert;
 import pages.AileButcemPage;
 import utils.Driver;
 import utils.ReusableMethods;
@@ -22,16 +23,18 @@ public class aileButcemStep {
        page.ilkEkranAyarlari();
        ReusableMethods.scrollWithUiScrollableAndClick(girisYap);
     }
-    @Given("mail ve password bilgilerini girerek kullanici bilgileriyle giris yapin")
-    public void mail_ve_password_bilgilerini_girerek_kullanici_bilgileriyle_giris_yapin() {
-
+    @Given("{string} ve {string} bilgilerini girerek kullanici bilgileriyle giris yapin")
+    public void mail_ve_password_bilgilerini_girerek_kullanici_bilgileriyle_giris_yapin(String mail,String password) {
+        page.girisYapMethod(mail,password);
     }
     @Given("uygulamaya kullanici bilgileriyle giris yapildigini dogrulayin")
     public void uygulamaya_kullanici_bilgileriyle_giris_yapildigini_dogrulayin() {
-
+        Assert.assertTrue(page.girisYapildiYazisi.isDisplayed());
     }
-    @Given("sol kisimdaki menuden hesabim bolumune gidin")
-    public void sol_kisimdaki_menuden_hesabim_bolumune_gidin() {
+    @Given("sol kisimdaki menuden {int} {int} {string} bolumune gidin")
+    public void sol_kisimdaki_menuden_hesabim_bolumune_gidin(int x1Koordinati,int y1Koordinati,String menuSecenekler) throws InterruptedException {
+       ReusableMethods.koordinatTiklamaMethodu(x1Koordinati,y1Koordinati);
+       ReusableMethods.scrollWithUiScrollableAndClick(menuSecenekler);
 
     }
     @Given("hesabim sayfasindaki bilgileri degistirerek degisikleri kaydedin")
