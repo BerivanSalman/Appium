@@ -33,16 +33,19 @@ public class aileButcemStep {
     }
     @Given("sol kisimdaki menuden {int} {int} {string} bolumune gidin")
     public void sol_kisimdaki_menuden_hesabim_bolumune_gidin(int x1Koordinati,int y1Koordinati,String menuSecenekler) throws InterruptedException {
+       ReusableMethods.wait(4);
        ReusableMethods.koordinatTiklamaMethodu(x1Koordinati,y1Koordinati);
        ReusableMethods.scrollWithUiScrollableAndClick(menuSecenekler);
 
     }
-    @Given("hesabim sayfasindaki bilgileri degistirerek degisikleri kaydedin")
-    public void hesabim_sayfasindaki_bilgileri_degistirerek_degisikleri_kaydedin() {
-
+    @Given("hesabim sayfasindaki bilgileri degistirerek {string} {string} {string} {string} {string} degisikleri kaydedin ve dogrulayin")
+    public void hesabim_sayfasindaki_bilgileri_degistirerek_degisikleri_kaydedin(String isim,String soyisim,String sehir,String yas,String meslek) {
+     page.bilgileriDegistirmeVeKaydetmeMethodu(isim,soyisim,sehir,yas,meslek);
+     page.bilgiDegistirmeAssert(isim,soyisim,sehir,yas,meslek);
     }
-    @Given("ardindan degisiklerin yapildigini dogrulayin")
-    public void ardindan_degisiklerin_yapildigini_dogrulayin() {
 
+    @Given("Kullanici uygulamayi kapatir")
+    public void kullanici_uygulamayi_kapatir() {
+     Driver.quitAppiumDriver();
     }
 }
