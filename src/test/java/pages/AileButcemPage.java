@@ -39,6 +39,17 @@ public class AileButcemPage {
     @FindBy(xpath = "(//*[@class='android.widget.EditText'])[5]")
     public MobileElement meslekBox;
 
+    @FindBy(xpath = "(//*[@class='android.widget.ImageView'])[5]")
+    public MobileElement plusButton;
+
+    @FindBy(xpath = "(//*[@class='android.widget.EditText'])[1]")
+    public MobileElement aciklamaKutusu;
+    @FindBy(xpath = "(//*[@class='android.widget.EditText'])[2]")
+    public MobileElement tutarKutusu;
+
+    @FindBy(xpath = "(//*[@class='android.view.ViewGroup'])[10]")
+    public MobileElement gelirTipiKutusu;
+
    public void ilkEkranAyarlari(){
       ReusableMethods.wait(2);
      for (int i=0; i<6; i++){

@@ -48,4 +48,50 @@ public class aileButcemStep {
     public void kullanici_uygulamayi_kapatir() {
      Driver.quitAppiumDriver();
     }
+
+
+
+
+
+
+
+    @Given("anasayfadaki arti butonuna tiklayin")
+    public void anasayfadaki_arti_butonuna_tiklayin() {
+     page.plusButton.click();
+    }
+    @Given("{string} Butonuna text uzerinden Tiklanir")
+    public void gelir_ekle_butonuna_text_uzerinden_tiklanir(String eklemeSecenekleri) {
+     ReusableMethods.scrollWithUiScrollableAndClick(eklemeSecenekleri);
+    }
+    @Given("Gelir Ekle sayfasinda aciklama kismina {string} deger girilir")
+    public void gelir_ekle_sayfasinda_aciklama_kismina_ılk_gelir_degeri_deger_girilir(String aciklamaDegeri) {
+   page.aciklamaKutusu.sendKeys(aciklamaDegeri);
+    }
+    @Given("Gelir Ekle sayfasinda Gelir Tipi {string} secilir")
+    public void gelir_ekle_sayfasinda_gelir_tipi_gelir_tipi_düzensiz_secilir(String gelirTipi) {
+     page.gelirTipiKutusu.click();
+     ReusableMethods.scrollWithUiScrollableAndClick(gelirTipi);
+    }
+
+    @Given("Gelir Ekle sayfasinda Kategori Serbest Gelir secilir")
+    public void gelir_ekle_sayfasinda_kategori_serbest_gelir_secilir() {
+
+    }
+    @Given("Gelir Ekle sayfasinda Tarih belirlemesi ve gun secimi yapilir")
+    public void gelir_ekle_sayfasinda_tarih_belirlemesi_ve_gun_secimi_yapilir() {
+
+    }
+    @Given("Gelir Ekle sayfasinda Tutar bilgisi girilir")
+    public void gelir_ekle_sayfasinda_tutar_bilgisi_girilir() {
+
+    }
+    @Given("Kaydet Butonuna text uzerinden Tiklanir")
+    public void kaydet_butonuna_text_uzerinden_tiklanir() {
+
+    }
+    @Given("basariyla eklendigini dogrulayin")
+    public void basariyla_eklendigini_dogrulayin() {
+
+    }
+
 }
