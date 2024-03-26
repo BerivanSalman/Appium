@@ -73,13 +73,15 @@ public class aileButcemStep {
      ReusableMethods.scrollWithUiScrollableAndClick(gelirTipi);
     }
 
-    @Given("Gelir Ekle sayfasinda Kategori Serbest Gelir secilir")
-    public void gelir_ekle_sayfasinda_kategori_serbest_gelir_secilir() {
+    @Given("Gelir Ekle sayfasinda Kategori {string} secilir")
+    public void gelir_ekle_sayfasinda_kategori_serbest_gelir_secilir(String kategori) {
+     page.kategoriKutusu.click();
+     ReusableMethods.scrollWithUiScrollableAndClick(kategori);
 
     }
-    @Given("Gelir Ekle sayfasinda Tarih belirlemesi ve gun secimi yapilir")
-    public void gelir_ekle_sayfasinda_tarih_belirlemesi_ve_gun_secimi_yapilir() {
-
+    @Given("Gelir Ekle sayfasinda Tarih belirlemesi ve kac ay ilerleme {int} secimi gun {string} yapilir")
+    public void gelir_ekle_sayfasinda_tarih_belirlemesi_ve_gun_secimi_yapilir(int forBitis,String gun) {
+        page.tarihKaydirmaMethodu(forBitis,gun);
     }
     @Given("Gelir Ekle sayfasinda Tutar bilgisi girilir")
     public void gelir_ekle_sayfasinda_tutar_bilgisi_girilir() {

@@ -50,6 +50,26 @@ public class AileButcemPage {
     @FindBy(xpath = "(//*[@class='android.view.ViewGroup'])[10]")
     public MobileElement gelirTipiKutusu;
 
+    @FindBy(xpath = "(//*[@class='android.view.ViewGroup'])[11]")
+    public MobileElement kategoriKutusu;
+
+    @FindBy(xpath = "(//*[@class='android.view.ViewGroup'])[12]")
+    public MobileElement tarihKutusu;
+
+    @FindBy(xpath = "(//*[@class='android.widget.ImageView'])[5]")
+    public MobileElement tarihKutusu2;
+
+
+    public void tarihKaydirmaMethodu(int forBitis,String gun){
+        tarihKutusu.click();
+        ReusableMethods.wait(2);
+        for (int i=0; i<forBitis;i++){
+            ReusableMethods.ekranKaydirmaMethodu(818,1056,750,260,1056);
+        }
+        ReusableMethods.scrollWithUiScrollableAndClick(gun);
+
+    }
+
    public void ilkEkranAyarlari(){
       ReusableMethods.wait(2);
      for (int i=0; i<6; i++){
