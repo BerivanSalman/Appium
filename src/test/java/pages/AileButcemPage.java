@@ -5,6 +5,7 @@ import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.junit.Assert;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.ConfigReader;
 import utils.Driver;
 import utils.ReusableMethods;
 
@@ -59,6 +60,11 @@ public class AileButcemPage {
     @FindBy(xpath = "(//*[@class='android.widget.ImageView'])[5]")
     public MobileElement tarihKutusu2;
 
+    @FindBy(id = "android:id/button1")
+    public MobileElement okButton;
+
+    @FindBy(xpath = "//*[@text='Gelir eklendi.']")
+    public MobileElement gelirEklediText;
 
     public void tarihKaydirmaMethodu(int forBitis,String gun){
         tarihKutusu.click();
@@ -67,6 +73,7 @@ public class AileButcemPage {
             ReusableMethods.ekranKaydirmaMethodu(818,1056,750,260,1056);
         }
         ReusableMethods.scrollWithUiScrollableAndClick(gun);
+        okButton.click();
 
     }
 
@@ -94,11 +101,11 @@ public class AileButcemPage {
 
    public void bilgileriDegistirmeVeKaydetmeMethodu(String isim,String soyIsim,String sehir,String yas,String meslek){
        bilgileriTemizlemeMethodu();
-       isimBox.sendKeys(isim);
-       soyisimBox.sendKeys(soyIsim);
-       sehirBox.sendKeys(sehir);
-       yasBox.sendKeys(yas);
-       meslekBox.sendKeys(meslek);
+       isimBox.sendKeys(ConfigReader.getProperty(isim));
+       soyisimBox.sendKeys(ConfigReader.getProperty(soyIsim));
+       sehirBox.sendKeys(ConfigReader.getProperty(sehir));
+       yasBox.sendKeys(ConfigReader.getProperty(yas));
+       meslekBox.sendKeys(ConfigReader.getProperty(meslek));
        ReusableMethods.scrollWithUiScrollableAndClick("Kaydet");
    }
 

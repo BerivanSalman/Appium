@@ -82,18 +82,15 @@ public class aileButcemStep {
     @Given("Gelir Ekle sayfasinda Tarih belirlemesi ve kac ay ilerleme {int} secimi gun {string} yapilir")
     public void gelir_ekle_sayfasinda_tarih_belirlemesi_ve_gun_secimi_yapilir(int forBitis,String gun) {
         page.tarihKaydirmaMethodu(forBitis,gun);
-    }
-    @Given("Gelir Ekle sayfasinda Tutar bilgisi girilir")
-    public void gelir_ekle_sayfasinda_tutar_bilgisi_girilir() {
 
     }
-    @Given("Kaydet Butonuna text uzerinden Tiklanir")
-    public void kaydet_butonuna_text_uzerinden_tiklanir() {
-
+    @Given("Gelir Ekle sayfasinda Tutar bilgisi {string} girilir")
+    public void gelir_ekle_sayfasinda_tutar_bilgisi_girilir(String tutar) {
+       page.tutarKutusu.sendKeys(tutar);
     }
     @Given("basariyla eklendigini dogrulayin")
     public void basariyla_eklendigini_dogrulayin() {
-
+     Assert.assertTrue( page.gelirEklediText.isDisplayed());
     }
 
 }
