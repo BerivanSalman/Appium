@@ -48,6 +48,11 @@ public class aileButcemStep {
     public void kullanici_uygulamayi_kapatir() {
      Driver.quitAppiumDriver();
     }
+    @Given("{string} sayfasinda gelir periyodu {string} secilir")
+    public void gelik_ekle_sayfasinda_gelir_periyodu_secilir(String gelirPeriyodu) {
+     page.gelirPeriyodu.click();
+     ReusableMethods.scrollWithUiScrollableAndClick(gelirPeriyodu);
+    }
 
 
 
@@ -63,29 +68,29 @@ public class aileButcemStep {
     public void gelir_ekle_butonuna_text_uzerinden_tiklanir(String eklemeSecenekleri) {
      ReusableMethods.scrollWithUiScrollableAndClick(eklemeSecenekleri);
     }
-    @Given("Gelir Ekle sayfasinda aciklama kismina {string} deger girilir")
-    public void gelir_ekle_sayfasinda_aciklama_kismina_ılk_gelir_degeri_deger_girilir(String aciklamaDegeri) {
+    @Given("{string} sayfasinda aciklama kismina {string} deger girilir")
+    public void gelir_ekle_sayfasinda_aciklama_kismina_ılk_gelir_degeri_deger_girilir(String sayfaBilgisi,String aciklamaDegeri) {
    page.aciklamaKutusu.sendKeys(aciklamaDegeri);
     }
-    @Given("Gelir Ekle sayfasinda Gelir Tipi {string} secilir")
-    public void gelir_ekle_sayfasinda_gelir_tipi_gelir_tipi_düzensiz_secilir(String gelirTipi) {
+    @Given("{string} sayfasinda Gelir Tipi {string} secilir")
+    public void gelir_ekle_sayfasinda_gelir_tipi_gelir_tipi_düzensiz_secilir(String sayfaBilgisi,String gelirTipi) {
      page.gelirTipiKutusu.click();
      ReusableMethods.scrollWithUiScrollableAndClick(gelirTipi);
     }
 
-    @Given("Gelir Ekle sayfasinda Kategori {string} secilir")
-    public void gelir_ekle_sayfasinda_kategori_serbest_gelir_secilir(String kategori) {
+    @Given("{string} sayfasinda Kategori {string} secilir")
+    public void gelir_ekle_sayfasinda_kategori_serbest_gelir_secilir(String sayfaBilgisi,String kategori) {
      page.kategoriKutusu.click();
      ReusableMethods.scrollWithUiScrollableAndClick(kategori);
 
     }
-    @Given("Gelir Ekle sayfasinda Tarih belirlemesi ve kac ay ilerleme {int} secimi gun {string} yapilir")
-    public void gelir_ekle_sayfasinda_tarih_belirlemesi_ve_gun_secimi_yapilir(int forBitis,String gun) {
+    @Given("{string} sayfasinda Tarih belirlemesi ve kac ay ilerleme {int} secimi gun {string} yapilir")
+    public void gelir_ekle_sayfasinda_tarih_belirlemesi_ve_gun_secimi_yapilir(String sayfaBilgisi,int forBitis,String gun) {
         page.tarihKaydirmaMethodu(forBitis,gun);
 
     }
-    @Given("Gelir Ekle sayfasinda Tutar bilgisi {string} girilir")
-    public void gelir_ekle_sayfasinda_tutar_bilgisi_girilir(String tutar) {
+    @Given("{string} sayfasinda Tutar bilgisi {string} girilir")
+    public void gelir_ekle_sayfasinda_tutar_bilgisi_girilir(String sayfaBilgisi,String tutar) {
        page.tutarKutusu.sendKeys(tutar);
     }
     @Given("basariyla eklendigini dogrulayin")
