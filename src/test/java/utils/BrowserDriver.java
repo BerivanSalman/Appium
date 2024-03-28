@@ -31,6 +31,10 @@ public class BrowserDriver {
             caps.setCapability(MobileCapabilityType.NO_RESET,false);
 
             caps.setCapability(MobileCapabilityType.BROWSER_NAME,"chrome"); // kullanacak oldugumuz mobil browser tanimi
+            caps.setCapability("chromedriverExecutable","C:\\Users\\ahmet\\IdeaProjects\\Appium_T-130_CUCUMBER\\Driver\\chromedriver.exe");
+            // Eger ki BrowserName=chrome capability cihazinizda chrome u basarili bir sekilde baslatmiyorsa manuel olarak
+            // chromedriver sitesinden telefondaki chrome uygulamasinin versiyonuna bakarak uygun driver indirilir ardindab
+            // bu sekilde capability olarak dosya yolu tanitilir.
 
             if (ConfigReader.getProperty("platformName").equals("Android")) {
 
