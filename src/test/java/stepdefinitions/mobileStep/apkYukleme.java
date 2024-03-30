@@ -18,7 +18,7 @@ public class apkYukleme {
         DesiredCapabilities capabilities=new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME,"Pixel 2");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME,"Android");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"10.0");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION,"7.0");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME,"UiAutomator2");
 
         capabilities.setCapability(MobileCapabilityType.APP,apkYolu);

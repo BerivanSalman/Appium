@@ -49,7 +49,7 @@ public class aileButcemStep {
      Driver.quitAppiumDriver();
     }
     @Given("{string} sayfasinda gelir periyodu {string} secilir")
-    public void gelik_ekle_sayfasinda_gelir_periyodu_secilir(String gelirPeriyodu) {
+    public void gelik_ekle_sayfasinda_gelir_periyodu_secilir(String gelirTuru,String gelirPeriyodu) {
      page.gelirPeriyodu.click();
      ReusableMethods.scrollWithUiScrollableAndClick(gelirPeriyodu);
     }
